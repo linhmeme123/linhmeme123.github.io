@@ -4,156 +4,201 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hoang Thuy Linh | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-
-<nav>
-    <div class="logo">LINH.</div>
-
-    <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
+    <div class="magic-dust" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
     </div>
-</nav>
 
+    <nav>
+        <a class="logo" href="#home">linh ♡</a>
 
-<section class="hero">
-    <p class="small-title">HELLO, I'M</p>
+        <div class="nav-links" aria-label="Primary navigation">
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills" class="optional-nav">Skills</a>
+            <a href="#experience" class="optional-nav">Experience</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
 
-    <h1>Hoang Thuy Linh</h1>
+    <main>
+        <section id="home" class="hero reveal-section">
+            <div class="hero-content">
+                <p class="eyebrow">✨ Welcome to Linh's little world ✨</p>
 
-    <h2>
-        Computer Science Student
-    </h2>
+                <h1>Hoang Thuy Linh</h1>
 
-    <p>
-        Interested in distributed systems,
-        networking and software architecture.
-    </p>
+                <p class="role">Computer Science Student</p>
 
-    <div class="buttons">
-        <a href="#projects" class="primary-btn">
-            View my work
-        </a>
+                <p class="hero-copy">
+                    turning ideas into magical little products.
+                </p>
 
-        <a href="https://github.com/linhmeme123"
-           target="_blank"
-           class="secondary-btn">
-            GitHub
-        </a>
-    </div>
-</section>
-
-
-<section id="about">
-
-    <h2>About me</h2>
-
-    <p>
-        I'm a Computer Science student interested in building
-        distributed and networked systems.
-    </p>
-
-</section>
-
-
-<section id="projects">
-
-    <p class="section-number">01</p>
-
-    <h2>Selected Projects</h2>
-
-
-    <div class="project">
-
-        <div class="project-info">
-
-            <p>Distributed Systems</p>
-
-            <h3>
-                Kafka Event-Driven Workflow System
-            </h3>
-
-            <p>
-                Event-driven backend architecture using Kafka,
-                Avro Schema Registry and the Outbox Pattern.
-            </p>
-
-            <div class="project-links">
-                <a href="#">Live Demo →</a>
-
-                <a href="#">
-                    Case Study →
-                </a>
-
-                <a href="https://github.com/linhmeme123"
-                   target="_blank">
-                    Source Code →
-                </a>
+                <div class="buttons">
+                    <a href="#projects" class="primary-btn">Explore my projects</a>
+                    <a href="https://github.com/linhmeme123" target="_blank" rel="noreferrer" class="secondary-btn">GitHub</a>
+                </div>
             </div>
 
-        </div>
-
-    </div>
-
-
-    <div class="project">
-
-        <div class="project-info">
-
-            <p>Decision Support System</p>
-
-            <h3>
-                Charity Decision Support System
-            </h3>
-
-            <p>
-                A decision support system helping charities
-                prioritize applicants based on multiple criteria.
-            </p>
-
-            <div class="project-links">
-                <a href="#">Live Demo →</a>
-                <a href="#">Case Study →</a>
-                <a href="#">Source Code →</a>
+            <div class="hero-visual" aria-hidden="true">
+                <div class="moon"></div>
+                <div class="castle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="cloud cloud-one"></div>
+                <div class="cloud cloud-two"></div>
+                <p class="floating-note">✦ systems, stories & soft magic ✦</p>
             </div>
 
-        </div>
+            <a href="#about" class="scroll-cue" aria-label="Scroll to about">
+                <span>♡</span>
+                <span>↓</span>
+            </a>
+        </section>
 
-    </div>
+        <section id="about" class="chapter about-section reveal-section">
+            <p class="chapter-kicker">Once Upon a Time...</p>
+            <div class="section-heading">
+                <p>About me</p>
+                <h2>I like turning complex systems into clear, useful products.</h2>
+            </div>
 
-</section>
+            <div class="about-grid">
+                <p>
+                    I'm a Computer Science student who enjoys understanding how distributed,
+                    networked and decision-support systems work behind the scenes.
+                </p>
+                <p>
+                    My favorite projects sit between engineering logic and human usefulness:
+                    reliable workflows, thoughtful architecture, and interfaces that make
+                    technical ideas feel approachable.
+                </p>
+            </div>
+        </section>
 
+        <section id="projects" class="chapter reveal-section">
+            <p class="chapter-kicker">✦ My Adventures ✦</p>
+            <div class="section-heading compact">
+                <p>Selected Projects</p>
+                <h2>Stories I have built in code.</h2>
+            </div>
 
-<section id="contact">
+            <div class="project-grid">
+                <article class="storybook-card">
+                    <p class="project-number">✦ Project 01</p>
+                    <h3>Charity Decision System</h3>
+                    <p>
+                        A decision-support system that helps charities prioritize applicants
+                        with clearer, criteria-based decisions.
+                    </p>
+                    <div class="tags" aria-label="Technologies">
+                        <span>Python</span>
+                        <span>DSS</span>
+                        <span>Full Stack</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="projects/charity-decision-system.html">View Story →</a>
+                        <a href="#">Source Code →</a>
+                    </div>
+                </article>
 
-    <p class="section-number">02</p>
+                <article class="storybook-card">
+                    <p class="project-number">✦ Project 02</p>
+                    <h3>Kafka Event-Driven Workflow System</h3>
+                    <p>
+                        Event-driven backend architecture using Kafka, Avro Schema Registry
+                        and the Outbox Pattern.
+                    </p>
+                    <div class="tags" aria-label="Technologies">
+                        <span>Kafka</span>
+                        <span>Avro</span>
+                        <span>Outbox</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="projects/kafka-workflow-system.html">View Story →</a>
+                        <a href="https://github.com/linhmeme123" target="_blank" rel="noreferrer">Source Code →</a>
+                    </div>
+                </article>
+            </div>
+        </section>
 
-    <h2>Let's work together.</h2>
+        <section id="skills" class="chapter skills-section reveal-section">
+            <p class="chapter-kicker">What I've Learned</p>
+            <div class="section-heading compact">
+                <p>Skills / Education</p>
+                <h2>A practical toolkit for building reliable things.</h2>
+            </div>
 
-    <p>
-        Feel free to contact me for projects,
-        research or opportunities.
-    </p>
+            <div class="skill-cloud" aria-label="Skills">
+                <span>Java</span>
+                <span>Kafka</span>
+                <span>Python</span>
+                <span>Redis</span>
+                <span>Docker</span>
+                <span>Blockchain</span>
+                <span>Networking</span>
+                <span>Software Architecture</span>
+            </div>
+        </section>
 
-    <a href="mailto:your-email@example.com">
-        Email me →
-    </a>
+        <section id="experience" class="chapter experience-section reveal-section">
+            <p class="chapter-kicker">✦ Behind the Magic ✦</p>
+            <div class="section-heading compact">
+                <p>Experience</p>
+                <h2>Building, learning, iterating.</h2>
+            </div>
 
-</section>
+            <div class="timeline">
+                <div>
+                    <p>01</p>
+                    <h3>System Thinking</h3>
+                    <span>Designing backend flows that stay understandable as they grow.</span>
+                </div>
+                <div>
+                    <p>02</p>
+                    <h3>Product Sense</h3>
+                    <span>Shaping tools around real users, not just technical checklists.</span>
+                </div>
+                <div>
+                    <p>03</p>
+                    <h3>Technical Curiosity</h3>
+                    <span>Exploring distributed systems, architecture and decision support.</span>
+                </div>
+            </div>
+        </section>
 
+        <section id="contact" class="chapter contact-section reveal-section">
+            <p class="chapter-kicker">Let's Create Magic ♡</p>
+            <div class="section-heading compact">
+                <p>Contact me</p>
+                <h2>Have an idea, opportunity or collaboration?</h2>
+            </div>
 
-<footer>
+            <div class="contact-actions">
+                <a href="mailto:your-email@example.com" class="primary-btn">Email me</a>
+                <a href="https://github.com/linhmeme123" target="_blank" rel="noreferrer" class="secondary-btn">Visit GitHub</a>
+            </div>
+        </section>
+    </main>
 
-    <p>
-        Designed & built by Hoang Thuy Linh
-    </p>
+    <footer>
+        <p>Designed & built by Hoang Thuy Linh</p>
+        <p>✦ Soft magic, serious engineering ✦</p>
+    </footer>
 
-</footer>
-
-
+    <script src="script.js"></script>
 </body>
 </html>
