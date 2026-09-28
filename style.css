@@ -1,0 +1,236 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f7f7f5;
+    color: #151515;
+    line-height: 1.6;
+}
+
+nav {
+    max-width: 1200px;
+    margin: auto;
+
+    padding: 30px 40px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.nav-links a:hover {
+    opacity: 0.5;
+}
+
+
+/* HERO */
+
+.hero {
+    max-width: 1200px;
+
+    margin: auto;
+
+    min-height: 80vh;
+
+    padding: 120px 40px;
+}
+
+.small-title {
+    font-size: 13px;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(60px, 10vw, 130px);
+    line-height: 0.95;
+
+    letter-spacing: -6px;
+}
+
+.hero h2 {
+    margin-top: 30px;
+
+    font-size: 26px;
+
+    font-weight: 400;
+}
+
+.hero > p {
+    max-width: 550px;
+
+    margin-top: 20px;
+
+    font-size: 18px;
+
+    color: #555;
+}
+
+.buttons {
+    margin-top: 40px;
+
+    display: flex;
+    gap: 15px;
+}
+
+.primary-btn {
+    padding: 15px 25px;
+
+    background: #151515;
+    color: white;
+}
+
+.secondary-btn {
+    padding: 14px 25px;
+
+    border: 1px solid #151515;
+}
+
+
+/* SECTIONS */
+
+section {
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 120px 40px;
+}
+
+section h2 {
+    font-size: 48px;
+
+    margin-bottom: 40px;
+}
+
+.section-number {
+    font-size: 13px;
+
+    margin-bottom: 10px;
+
+    color: #777;
+}
+
+
+/* PROJECT */
+
+.project {
+    border-top: 1px solid #ccc;
+
+    padding: 50px 0;
+}
+
+.project h3 {
+    font-size: 36px;
+
+    margin: 10px 0 20px;
+}
+
+.project-info > p {
+    max-width: 650px;
+}
+
+.project-links {
+    display: flex;
+
+    gap: 25px;
+
+    margin-top: 30px;
+}
+
+.project-links a {
+    font-weight: bold;
+}
+
+.project-links a:hover {
+    opacity: 0.5;
+}
+
+
+/* CONTACT */
+
+#contact {
+    min-height: 500px;
+}
+
+#contact a {
+    display: inline-block;
+
+    margin-top: 30px;
+
+    font-size: 22px;
+
+    border-bottom: 1px solid;
+}
+
+
+/* FOOTER */
+
+footer {
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 30px 40px;
+
+    border-top: 1px solid #ccc;
+
+    font-size: 13px;
+    color: #777;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    nav {
+        padding: 20px;
+    }
+
+    .nav-links {
+        gap: 15px;
+    }
+
+    .hero,
+    section {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .hero h1 {
+        letter-spacing: -3px;
+    }
+
+    .project h3 {
+        font-size: 28px;
+    }
+
+    .project-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
