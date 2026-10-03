@@ -74,13 +74,9 @@
                 <div class="template-divider" aria-hidden="true"><span>♡</span></div>
 
                 <div class="about-body">
-                    <figure class="princess-frame">
-                        <div class="princess-photo">
-                            <img src="assets/images/profile-portrait.jpg" alt="Hoang Thuy Linh smiling at a cafe" loading="lazy">
-                        </div>
-                        <img class="princess-frame-art" src="assets/images/princess-frame.png" alt="" aria-hidden="true">
-                        <figcaption>♡ a little magic, just for you ♡</figcaption>
-                    </figure>
+                    <div class="about-media">
+                        <img src="assets/images/profile-portrait.jpg" alt="Hoang Thuy Linh smiling at a cafe" loading="lazy">
+                    </div>
 
                     <div class="about-copy">
                         <p>
@@ -109,9 +105,9 @@
             <div class="project-group">
                 <div class="portfolio-project-grid">
                     <article class="portfolio-project-card">
-                        <button class="project-icon-button" type="button" data-demo-id="lophocso" aria-label="Open the Lớp học số interface preview">
+                        <a class="project-icon-button project-icon-link" href="" target="_blank" rel="noopener noreferrer" aria-label="Open the Lớp học số project">
                             <span class="project-icon project-icon-school" aria-hidden="true">⌁</span>
-                        </button>
+                        </a>
                         <div class="portfolio-project-copy">
                             <p class="project-number">✦ Frontend 01</p>
                             <h3>Digital Learning Platform</h3>
@@ -125,9 +121,9 @@
                     </article>
 
                     <article class="portfolio-project-card">
-                        <button class="project-icon-button" type="button" data-demo-id="open-banking" aria-label="Open the Open Banking App interface preview">
+                        <a class="project-icon-button project-icon-link" href="" target="_blank" rel="noopener noreferrer" aria-label="Open the Open Banking App project">
                             <span class="project-icon project-icon-bank" aria-hidden="true">◈</span>
-                        </button>
+                        </a>
                         <div class="portfolio-project-copy">
                             <p class="project-number">✦ Frontend 02</p>
                             <h3>Open Banking App</h3>
@@ -141,7 +137,7 @@
                     </article>
 
                     <article class="portfolio-project-card">
-                        <button class="project-icon-button" type="button" data-demo-id="fandy" aria-label="Open the Fandy interface preview">
+                        <button class="project-icon-button" type="button" data-project-bubble="fandy" aria-haspopup="dialog" aria-label="Open the Fandy project notes">
                             <span class="project-icon project-icon-fandy" aria-hidden="true">F</span>
                         </button>
                         <div class="portfolio-project-copy">
@@ -155,13 +151,11 @@
                             </div>
                         </div>
                     </article>
-                </div>
-            </div>
 
-            <div class="project-group project-group-practice">
-                <div class="portfolio-project-grid portfolio-project-grid-practice">
-                    <article class="portfolio-project-card practice-card">
-                        <div class="practice-card-mark practice-card-mark-kafka" aria-hidden="true">≋</div>
+                    <article class="portfolio-project-card">
+                        <button class="project-icon-button" type="button" data-project-bubble="system-parameters" aria-haspopup="dialog" aria-label="Open the System Parameters project notes">
+                            <span class="project-icon project-icon-system" aria-hidden="true">≋</span>
+                        </button>
                         <div class="portfolio-project-copy">
                             <p class="project-number">✦ Practice 01</p>
                             <h3>System Parameters</h3>
@@ -171,14 +165,13 @@
                                 <span>Java</span>
                                 <span>Systems</span>
                             </div>
-                            <a class="detail-btn" href="projects/project-detail.html?project=system-parameters" target="_blank" rel="noopener noreferrer">
-                                View detail <span aria-hidden="true">↗</span>
-                            </a>
                         </div>
                     </article>
 
-                    <article class="portfolio-project-card practice-card">
-                        <div class="practice-card-mark practice-card-mark-market" aria-hidden="true">✿</div>
+                    <article class="portfolio-project-card">
+                        <button class="project-icon-button" type="button" data-project-bubble="frontline-market" aria-haspopup="dialog" aria-label="Open the Frontline Market project notes">
+                            <span class="project-icon project-icon-market" aria-hidden="true">✿</span>
+                        </button>
                         <div class="portfolio-project-copy">
                             <p class="project-number">✦ Practice 02</p>
                             <h3>Frontline Market</h3>
@@ -188,9 +181,6 @@
                                 <span>Mobile</span>
                                 <span>Marketplace</span>
                             </div>
-                            <a class="detail-btn" href="projects/project-detail.html?project=frontline-market" target="_blank" rel="noopener noreferrer">
-                                View detail <span aria-hidden="true">↗</span>
-                            </a>
                         </div>
                     </article>
                 </div>
@@ -213,27 +203,27 @@
         <section id="contact" class="chapter contact-section reveal-section">
             <p class="chapter-kicker">Let's Create Magic ♡</p>
             <h2 class="contact-title">Contact Me</h2>
-            <p class="contact-copy">Have an idea or collaboration? Find me in one of these little corners of the internet.</p>
+            <p class="contact-copy">Have an idea or collaboration?</p>
 
             <div class="contact-social-links" aria-label="Social media and contact links">
-                <a class="contact-social-link contact-social-link-tiktok" href="" aria-label="TikTok" title="TikTok">
+                <a class="contact-social-link contact-social-link-tiktok" href="https://www.tiktok.com/@linhmeme166" aria-label="TikTok" title="TikTok">
                     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                         <path d="M15.8 3c.2 1.8 1.2 3.1 3.2 3.5v3a8 8 0 0 1-3.2-1v6.1a5.4 5.4 0 1 1-4.7-5.3v3.1a2.4 2.4 0 1 0 1.7 2.2V3h3Z" fill="currentColor"/>
                     </svg>
                 </a>
-                <a class="contact-social-link contact-social-link-email" href="" aria-label="Email" title="Email">
+                <a class="contact-social-link contact-social-link-email" href="mailto:linh166105thcs@gmail.com" aria-label="Email" title="Email">
                     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                         <path d="M3.5 5.5h17A1.5 1.5 0 0 1 22 7v10a1.5 1.5 0 0 1-1.5 1.5h-17A1.5 1.5 0 0 1 2 17V7a1.5 1.5 0 0 1 1.5-1.5Zm.4 2.2 7.1 5.3a1.7 1.7 0 0 0 2 0l7.1-5.3V7h-16v.7Zm16.2 1.8-5.8 4.3a3.8 3.8 0 0 1-4.6 0L4 9.5V17c0 .3.2.5.5.5h15c.3 0 .5-.2.5-.5V9.5Z" fill="currentColor"/>
                     </svg>
                 </a>
-                <a class="contact-social-link contact-social-link-instagram" href="" aria-label="Instagram" title="Instagram">
+                <a class="contact-social-link contact-social-link-instagram" href="https://www.instagram.com/_linhmeme_/" aria-label="Instagram" title="Instagram">
                     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                         <rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5" fill="none" stroke="currentColor" stroke-width="2"/>
                         <circle cx="12" cy="12" r="4.1" fill="none" stroke="currentColor" stroke-width="2"/>
                         <circle cx="17.6" cy="6.6" r="1.2" fill="currentColor"/>
                     </svg>
                 </a>
-                <a class="contact-social-link contact-social-link-facebook" href="" aria-label="Facebook" title="Facebook">
+                <a class="contact-social-link contact-social-link-facebook" href="https://www.facebook.com/thuy.linh.hoang.242194/" aria-label="Facebook" title="Facebook">
                     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                         <path d="M13.7 21v-8h2.7l.4-3h-3.1V8.1c0-.9.3-1.6 1.7-1.6h1.8V3.8c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3V10H7.8v3h2.7v8h3.2Z" fill="currentColor"/>
                     </svg>
@@ -242,19 +232,50 @@
         </section>
     </main>
 
-    <div class="demo-modal" id="project-demo-modal" hidden>
-        <div class="demo-modal-backdrop" data-demo-close></div>
-        <section class="demo-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="demo-modal-title" aria-describedby="demo-modal-description">
-            <header class="demo-modal-header">
+    <div class="project-bubble" id="project-detail-bubble" hidden aria-hidden="true">
+        <div class="project-bubble-backdrop" data-project-close></div>
+        <section class="project-bubble-dialog" role="dialog" aria-modal="true" aria-labelledby="project-bubble-title" aria-describedby="project-bubble-description">
+            <header class="project-bubble-header">
                 <div>
-                    <p class="demo-modal-kicker">Interactive frontend preview</p>
-                    <h2 id="demo-modal-title">Project interface</h2>
-                    <p id="demo-modal-description">Explore the project interface in this preview window.</p>
+                    <p class="project-bubble-kicker">Project workspace</p>
+                    <h2 id="project-bubble-title">Project notes</h2>
+                    <p id="project-bubble-description">Add your project notes here.</p>
                 </div>
-                <button class="demo-modal-close" type="button" data-demo-close aria-label="Close project preview">×</button>
+                <button class="project-bubble-close" type="button" data-project-close aria-label="Close project notes">×</button>
             </header>
-            <div class="demo-modal-frame-wrap">
-                <iframe id="project-demo-frame" title="Project interface preview" loading="eager"></iframe>
+
+            <div class="project-bubble-layout">
+                <div class="project-bubble-tabs" role="tablist" aria-label="Project note sections">
+                    <button class="project-bubble-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="project-overview-panel" id="project-overview-tab" data-project-tab="overview">
+                        Overview
+                    </button>
+                    <button class="project-bubble-tab" type="button" role="tab" aria-selected="false" aria-controls="project-detail-panel" id="project-detail-tab" data-project-tab="detail" tabindex="-1">
+                        Detail
+                    </button>
+                </div>
+
+                <div class="project-bubble-panels">
+                    <section class="project-bubble-panel is-active" id="project-overview-panel" role="tabpanel" aria-labelledby="project-overview-tab" data-project-panel="overview">
+                        <div class="project-note-block">
+                            <p class="project-note-label">Tech stack</p>
+                            <h3>Technologies & tools</h3>
+                            <p class="project-placeholder" data-project-slot="techstack">Add the technologies used in this project here.</p>
+                        </div>
+                        <div class="project-note-block">
+                            <p class="project-note-label">Outcomes</p>
+                            <h3>Achievements</h3>
+                            <p class="project-placeholder" data-project-slot="outcomes">Add the key results and achievements here.</p>
+                        </div>
+                    </section>
+
+                    <section class="project-bubble-panel" id="project-detail-panel" role="tabpanel" aria-labelledby="project-detail-tab" data-project-panel="detail" hidden>
+                        <div class="project-note-block project-note-block-detail">
+                            <p class="project-note-label">README space</p>
+                            <h3>Project detail</h3>
+                            <p class="project-placeholder" data-project-slot="detail">Add the README-style project description, architecture notes, and usage details here.</p>
+                        </div>
+                    </section>
+                </div>
             </div>
         </section>
     </div>

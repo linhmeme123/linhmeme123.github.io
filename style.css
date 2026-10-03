@@ -541,66 +541,29 @@ main {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: clamp(32px, 5vw, 72px);
-    align-items: center;
+    align-items: stretch;
     margin-top: 38px;
 }
 
-.princess-frame {
+.about-media {
     position: relative;
-    width: min(300px, 100%);
-    aspect-ratio: 5 / 8;
-    margin: 0 auto;
-    filter: drop-shadow(0 18px 18px rgba(143, 45, 92, 0.18));
-}
-
-.about-body > .princess-frame {
-    justify-self: center;
-    align-self: center;
-}
-
-.princess-photo {
-    position: absolute;
-    display: grid;
-    top: 14.75%;
-    left: 14%;
-    width: 72%;
-    height: 70.5%;
-    place-items: center;
+    min-width: 0;
+    min-height: 0;
     overflow: hidden;
-    border-radius: 5% 5% 7% 7%;
+    border-radius: 24px;
     background: #263f3a;
-    box-shadow: inset 0 0 0 3px rgba(255, 247, 208, 0.48);
+    box-shadow: 0 18px 42px rgba(143, 45, 92, 0.14);
 }
 
-.princess-photo img {
+.about-media img {
     display: block;
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center center;
     filter: saturate(1.04) contrast(1.02);
-}
-
-.princess-frame-art {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    display: block;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-}
-
-.princess-frame figcaption {
-    position: absolute;
-    right: 0;
-    bottom: -28px;
-    left: 0;
-    color: rgba(143, 45, 92, 0.84);
-    font-family: "Cormorant Garamond", Georgia, serif;
-    font-size: 1.08rem;
-    font-weight: 700;
-    text-align: center;
 }
 
 .about-copy {
@@ -780,10 +743,6 @@ main {
     gap: 22px;
 }
 
-.portfolio-project-grid-practice {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
 .portfolio-project-card {
     position: relative;
     display: flex;
@@ -864,8 +823,8 @@ main {
 }
 
 .project-icon-button:focus-visible,
-.detail-btn:focus-visible,
-.demo-modal-close:focus-visible {
+.project-bubble-close:focus-visible,
+.project-bubble-tab:focus-visible {
     outline: 3px solid rgba(143, 45, 92, 0.42);
     outline-offset: 4px;
 }
@@ -905,6 +864,18 @@ main {
     border-radius: 40% 60% 64% 36% / 50% 46% 54% 50%;
     background: linear-gradient(145deg, #fff9dc, #f6b3d7 88%);
     color: #a92f73;
+}
+
+.project-icon-system {
+    border-radius: 48% 52% 38% 62% / 56% 42% 58% 44%;
+    background: linear-gradient(145deg, #fff9dc, #c4e5df 88%);
+    color: #39736c;
+}
+
+.project-icon-market {
+    border-radius: 42% 58% 56% 44% / 48% 58% 42% 52%;
+    background: linear-gradient(145deg, #fff9dc, #f4c3a5 88%);
+    color: #9d5d78;
 }
 
 .project-icon-button:hover .project-icon,
@@ -950,60 +921,7 @@ main {
     padding-top: 24px;
 }
 
-.practice-card {
-    display: grid;
-    grid-template-columns: 116px minmax(0, 1fr);
-    min-height: 350px;
-    gap: 4px;
-    padding: 24px 22px 24px 24px;
-}
-
-.practice-card .portfolio-project-copy {
-    padding: 4px 12px 10px 10px;
-}
-
-.practice-card-mark {
-    display: grid;
-    width: 94px;
-    height: 94px;
-    place-items: center;
-    border: 1px solid rgba(232, 194, 122, 0.66);
-    border-radius: 50%;
-    background: rgba(255, 244, 248, 0.76);
-    color: var(--pink-deep);
-    font-family: "Cormorant Garamond", Georgia, serif;
-    font-size: 3.6rem;
-    line-height: 1;
-    box-shadow: 0 12px 24px rgba(217, 108, 149, 0.12);
-}
-
-.practice-card-mark-market {
-    color: #9d5d78;
-    background: rgba(255, 249, 220, 0.86);
-}
-
-.practice-card .tags {
-    margin-top: 22px;
-    padding-top: 0;
-}
-
-.detail-btn {
-    display: inline-flex;
-    align-items: center;
-    align-self: flex-start;
-    gap: 8px;
-    margin-top: auto;
-    padding-top: 22px;
-    color: var(--pink-deep);
-    font-size: 0.92rem;
-    font-weight: 900;
-}
-
-.detail-btn:hover {
-    color: var(--ink);
-}
-
-.demo-modal {
+.project-bubble {
     position: fixed;
     inset: 0;
     z-index: 60;
@@ -1012,23 +930,23 @@ main {
     padding: 24px;
 }
 
-.demo-modal[hidden] {
+.project-bubble[hidden] {
     display: none;
 }
 
-.demo-modal-backdrop {
+.project-bubble-backdrop {
     position: absolute;
     inset: 0;
     background: rgba(74, 51, 64, 0.48);
     backdrop-filter: blur(8px);
 }
 
-.demo-modal-dialog {
+.project-bubble-dialog {
     position: relative;
     z-index: 1;
     display: flex;
-    width: min(1120px, 100%);
-    max-height: min(90vh, 900px);
+    width: min(980px, 100%);
+    max-height: min(86vh, 760px);
     flex-direction: column;
     overflow: hidden;
     border: 1px solid rgba(232, 194, 122, 0.68);
@@ -1038,7 +956,7 @@ main {
     animation: detail-open 260ms ease both;
 }
 
-.demo-modal-header {
+.project-bubble-header {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
@@ -1047,7 +965,8 @@ main {
     background: linear-gradient(135deg, rgba(244, 167, 192, 0.28), rgba(255, 253, 251, 0.7));
 }
 
-.demo-modal-kicker {
+.project-bubble-kicker,
+.project-note-label {
     color: var(--pink-deep);
     font-size: 0.76rem;
     font-weight: 900;
@@ -1055,7 +974,7 @@ main {
     text-transform: uppercase;
 }
 
-.demo-modal-header h2 {
+.project-bubble-header h2 {
     margin-top: 4px;
     color: var(--ink);
     font-family: "Cormorant Garamond", Georgia, serif;
@@ -1063,13 +982,14 @@ main {
     line-height: 0.95;
 }
 
-.demo-modal-header p:last-child {
-    margin-top: 6px;
+.project-bubble-header p:last-child {
+    max-width: 620px;
+    margin-top: 8px;
     color: rgba(74, 51, 64, 0.7);
-    font-size: 0.9rem;
+    font-size: 0.92rem;
 }
 
-.demo-modal-close {
+.project-bubble-close {
     display: grid;
     width: 42px;
     height: 42px;
@@ -1084,22 +1004,83 @@ main {
     line-height: 1;
 }
 
-.demo-modal-frame-wrap {
+.project-bubble-layout {
+    display: grid;
     min-height: 0;
-    padding: 0 14px 14px;
+    grid-template-columns: minmax(150px, 190px) minmax(0, 1fr);
+    flex: 1;
 }
 
-#project-demo-frame {
-    display: block;
-    width: 100%;
-    height: min(68vh, 690px);
-    min-height: 420px;
-    border: 1px solid rgba(217, 108, 149, 0.2);
-    border-radius: 18px;
-    background: #fff;
+.project-bubble-tabs {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 24px 16px;
+    border-right: 1px solid rgba(217, 108, 149, 0.2);
+    background: rgba(244, 167, 192, 0.13);
 }
 
-body.demo-open {
+.project-bubble-tab {
+    padding: 14px 16px;
+    border: 1px solid transparent;
+    border-radius: 14px;
+    background: transparent;
+    color: rgba(74, 51, 64, 0.64);
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 800;
+    text-align: left;
+    transition: color 180ms ease, background 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+.project-bubble-tab:hover,
+.project-bubble-tab.is-active {
+    border-color: rgba(217, 108, 149, 0.3);
+    background: rgba(255, 253, 251, 0.84);
+    color: var(--pink-deep);
+    transform: translateX(3px);
+}
+
+.project-bubble-panels {
+    min-height: 0;
+    overflow: auto;
+    padding: 32px;
+    background: rgba(255, 253, 251, 0.7);
+}
+
+.project-bubble-panel[hidden] {
+    display: none;
+}
+
+.project-bubble-panel.is-active {
+    animation: detail-open 220ms ease both;
+}
+
+.project-note-block + .project-note-block {
+    margin-top: 28px;
+}
+
+.project-note-block h3 {
+    margin-top: 7px;
+    color: var(--ink);
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: clamp(1.8rem, 3vw, 2.7rem);
+    line-height: 0.98;
+}
+
+.project-placeholder {
+    min-height: 120px;
+    margin-top: 16px;
+    padding: 20px;
+    border: 1px dashed rgba(217, 108, 149, 0.45);
+    border-radius: 16px;
+    background: rgba(255, 244, 248, 0.55);
+    color: rgba(74, 51, 64, 0.6);
+    font-size: 0.96rem;
+    line-height: 1.7;
+}
+
+body.project-bubble-open {
     overflow: hidden;
 }
 
@@ -1265,7 +1246,7 @@ body.demo-open {
     margin-top: 14px;
     color: var(--ink);
     font-family: "Cormorant Garamond", Georgia, serif;
-    font-size: clamp(3.4rem, 8vw, 6.4rem);
+    font-size: clamp(1.7rem, 8vw, 6.4rem);
     line-height: 0.86;
     letter-spacing: -0.03em;
     text-align: center;
@@ -1512,13 +1493,16 @@ footer {
         gap: 14px;
     }
 
-    .portfolio-project-grid,
-    .portfolio-project-grid-practice {
+    .portfolio-project-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .about-body {
         gap: 52px;
+    }
+
+    .about-media {
+        min-height: clamp(360px, 58vw, 520px);
     }
 
     .skill-cloud {
@@ -1635,13 +1619,13 @@ footer {
         text-align: left;
     }
 
-    .portfolio-project-grid,
-    .portfolio-project-grid-practice {
+    .portfolio-project-grid {
         grid-template-columns: 1fr;
     }
 
-    .princess-frame {
-        width: min(270px, 82vw);
+    .about-media {
+        min-height: clamp(360px, 112vw, 520px);
+        border-radius: 18px;
     }
 
     .storybook-card {
@@ -1657,38 +1641,43 @@ footer {
         padding: 24px;
     }
 
-    .practice-card {
-        grid-template-columns: 1fr;
-        min-height: auto;
-        gap: 14px;
-    }
-
-    .practice-card-mark {
-        width: 76px;
-        height: 76px;
-        font-size: 2.8rem;
-    }
-
-    .practice-card .portfolio-project-copy {
-        padding: 0 4px 8px;
-    }
-
-    .demo-modal {
+    .project-bubble {
         padding: 10px;
     }
 
-    .demo-modal-header {
+    .project-bubble-dialog {
+        max-height: 90vh;
+        border-radius: 22px;
+    }
+
+    .project-bubble-header {
         padding: 20px 18px 16px;
     }
 
-    .demo-modal-frame-wrap {
-        padding: 0 8px 8px;
+    .project-bubble-layout {
+        grid-template-columns: 1fr;
     }
 
-    #project-demo-frame {
-        height: 68vh;
-        min-height: 360px;
-        border-radius: 14px;
+    .project-bubble-tabs {
+        flex-direction: row;
+        overflow-x: auto;
+        padding: 12px;
+        border-right: 0;
+        border-bottom: 1px solid rgba(217, 108, 149, 0.2);
+    }
+
+    .project-bubble-tab {
+        flex: 1 0 120px;
+        text-align: center;
+    }
+
+    .project-bubble-tab:hover,
+    .project-bubble-tab.is-active {
+        transform: translateY(-2px);
+    }
+
+    .project-bubble-panels {
+        padding: 24px 18px;
     }
 
     .project-page {

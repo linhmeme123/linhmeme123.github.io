@@ -42,89 +42,118 @@ if (!prefersReducedMotion) {
     });
 }
 
-const demoModal = document.querySelector("#project-demo-modal");
-const demoFrame = document.querySelector("#project-demo-frame");
-const demoTitle = document.querySelector("#demo-modal-title");
-const demoDescription = document.querySelector("#demo-modal-description");
-const demoTriggers = document.querySelectorAll("[data-demo-id]");
-const demoCloseButtons = document.querySelectorAll("[data-demo-close]");
+const projectBubble = document.querySelector("#project-detail-bubble");
+const projectBubbleTitle = document.querySelector("#project-bubble-title");
+const projectBubbleDescription = document.querySelector("#project-bubble-description");
+const projectBubbleTriggers = document.querySelectorAll("[data-project-bubble]");
+const projectBubbleCloseButtons = document.querySelectorAll("[data-project-close]");
+const projectBubbleTabs = [...document.querySelectorAll("[data-project-tab]")];
+const projectBubblePanels = [...document.querySelectorAll("[data-project-panel]")];
 
-const projectDemos = {
-    lophocso: {
-        title: "Lớp học số",
-        description: "A calm learning workspace for classes, progress, and shared study moments.",
-        src: "projects/demos.html?app=lophocso"
-    },
-    "open-banking": {
-        title: "Open Banking App",
-        description: "A clear personal finance dashboard for balances, spending insights, and connected accounts.",
-        src: "projects/demos.html?app=open-banking"
-    },
+const projectBubbleContent = {
     fandy: {
         title: "Fandy",
-        description: "A playful product space for discovery, collections, and simple actions.",
-        src: "projects/demos.html?app=fandy"
+        description: "A dedicated space for the project tech stack, outcomes, and README-style notes."
+    },
+    "system-parameters": {
+        title: "System Parameters",
+        description: "A dedicated space for Kafka systems notes, outcomes, and README-style details."
+    },
+    "frontline-market": {
+        title: "Frontline Market",
+        description: "A dedicated space for marketplace notes, outcomes, and README-style details."
     }
 };
 
-let lastDemoTrigger = null;
+let lastProjectBubbleTrigger = null;
 
-const getDemoFocusableElements = () => {
-    if (!demoModal) {
+const getProjectBubbleFocusableElements = () => {
+    if (!projectBubble) {
         return [];
     }
 
-    return [...demoModal.querySelectorAll("button, iframe")].filter((element) => !element.disabled);
+    return [...projectBubble.querySelectorAll("button")].filter((element) => !element.disabled && !element.hidden);
 };
 
-const closeProjectDemo = () => {
-    if (!demoModal || demoModal.hidden) {
+const setProjectBubbleTab = (tabName, moveFocus = false) => {
+    projectBubbleTabs.forEach((tab) => {
+        const isActive = tab.dataset.projectTab === tabName;
+        tab.classList.toggle("is-active", isActive);
+        tab.setAttribute("aria-selected", String(isActive));
+        tab.tabIndex = isActive ? 0 : -1;
+    });
+
+    projectBubblePanels.forEach((panel) => {
+        const isActive = panel.dataset.projectPanel === tabName;
+        panel.classList.toggle("is-active", isActive);
+        panel.hidden = !isActive;
+    });
+
+    if (moveFocus) {
+        projectBubbleTabs.find((tab) => tab.dataset.projectTab === tabName)?.focus();
+    }
+};
+
+const closeProjectBubble = () => {
+    if (!projectBubble || projectBubble.hidden) {
         return;
     }
 
-    demoModal.hidden = true;
-    demoModal.setAttribute("aria-hidden", "true");
-    document.body.classList.remove("demo-open");
-    demoFrame.src = "about:blank";
-    lastDemoTrigger?.focus();
+    projectBubble.hidden = true;
+    projectBubble.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("project-bubble-open");
+    lastProjectBubbleTrigger?.focus();
 };
 
-const openProjectDemo = (projectId, trigger) => {
-    const project = projectDemos[projectId];
+const openProjectBubble = (projectId, trigger) => {
+    const project = projectBubbleContent[projectId];
 
-    if (!demoModal || !demoFrame || !project) {
+    if (!projectBubble || !project || !projectBubbleTitle || !projectBubbleDescription) {
         return;
     }
 
-    lastDemoTrigger = trigger;
-    demoTitle.textContent = project.title;
-    demoDescription.textContent = project.description;
-    demoFrame.title = `${project.title} interface preview`;
-    demoFrame.src = project.src;
-    demoModal.hidden = false;
-    demoModal.setAttribute("aria-hidden", "false");
-    document.body.classList.add("demo-open");
+    lastProjectBubbleTrigger = trigger;
+    projectBubbleTitle.textContent = project.title;
+    projectBubbleDescription.textContent = project.description;
+    setProjectBubbleTab("overview");
+    projectBubble.hidden = false;
+    projectBubble.setAttribute("aria-hidden", "false");
+    document.body.classList.add("project-bubble-open");
 
     window.requestAnimationFrame(() => {
-        demoModal.querySelector(".demo-modal-close")?.focus();
+        projectBubble.querySelector(".project-bubble-close")?.focus();
     });
 };
 
-demoTriggers.forEach((trigger) => {
-    trigger.addEventListener("click", () => openProjectDemo(trigger.dataset.demoId, trigger));
+projectBubbleTriggers.forEach((trigger) => {
+    trigger.addEventListener("click", () => openProjectBubble(trigger.dataset.projectBubble, trigger));
 });
 
-demoCloseButtons.forEach((closeButton) => {
-    closeButton.addEventListener("click", closeProjectDemo);
+projectBubbleCloseButtons.forEach((closeButton) => {
+    closeButton.addEventListener("click", closeProjectBubble);
+});
+
+projectBubbleTabs.forEach((tab, index) => {
+    tab.addEventListener("click", () => setProjectBubbleTab(tab.dataset.projectTab));
+    tab.addEventListener("keydown", (event) => {
+        if (!["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(event.key)) {
+            return;
+        }
+
+        event.preventDefault();
+        const direction = ["ArrowUp", "ArrowLeft"].includes(event.key) ? -1 : 1;
+        const nextIndex = (index + direction + projectBubbleTabs.length) % projectBubbleTabs.length;
+        setProjectBubbleTab(projectBubbleTabs[nextIndex].dataset.projectTab, true);
+    });
 });
 
 document.addEventListener("keydown", (event) => {
-    if (!demoModal || demoModal.hidden) {
+    if (!projectBubble || projectBubble.hidden) {
         return;
     }
 
     if (event.key === "Escape") {
-        closeProjectDemo();
+        closeProjectBubble();
         return;
     }
 
@@ -132,7 +161,7 @@ document.addEventListener("keydown", (event) => {
         return;
     }
 
-    const focusableElements = getDemoFocusableElements();
+    const focusableElements = getProjectBubbleFocusableElements();
 
     if (!focusableElements.length) {
         return;
