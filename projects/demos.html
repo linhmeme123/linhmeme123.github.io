@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project preview</title>
+    <style>
+        :root {
+            --ink: #29243b;
+            --muted: #716a82;
+            --paper: #fffdfb;
+            --line: rgba(43, 34, 67, 0.1);
+            --pink: #ee8eae;
+            --violet: #7664d9;
+            --mint: #cfe9dc;
+            --yellow: #f7d98a;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        button { font: inherit; }
+        body { min-width: 320px; min-height: 100vh; background: #f8f4f5; color: var(--ink); font: 14px/1.5 Inter, ui-sans-serif, system-ui, -apple-system, sans-serif; }
+        button { border: 0; cursor: pointer; }
+        .demo-app { display: flex; min-height: 100vh; overflow: hidden; background: var(--paper); }
+        .demo-sidebar { display: flex; width: 214px; flex: 0 0 214px; flex-direction: column; padding: 24px 18px; background: #fbf2f7; border-right: 1px solid var(--line); }
+        .demo-brand { display: flex; align-items: center; gap: 8px; color: #b64d79; font-family: Georgia, serif; font-size: 20px; font-weight: 700; }
+        .demo-brand span { display: grid; width: 28px; height: 28px; place-items: center; border-radius: 10px; background: var(--pink); color: white; font-size: 14px; }
+        .demo-nav { display: grid; gap: 5px; margin-top: 48px; }
+        .demo-nav button { display: flex; align-items: center; gap: 10px; padding: 10px 11px; border-radius: 11px; background: transparent; color: var(--muted); text-align: left; font-size: 12px; font-weight: 700; }
+        .demo-nav button:hover, .demo-nav button.is-active { background: rgba(238, 142, 174, 0.18); color: #a8436c; }
+        .demo-profile { display: flex; align-items: center; gap: 9px; margin-top: auto; padding: 12px 4px 4px; border-top: 1px solid var(--line); color: var(--muted); font-size: 11px; }
+        .demo-avatar { display: grid; width: 32px; height: 32px; place-items: center; border-radius: 50%; background: #f5c3d4; color: #8f2d5c; font-weight: 800; }
+        .demo-main { width: 100%; min-width: 0; padding: clamp(24px, 5vw, 52px); overflow: auto; }
+        .demo-main-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; }
+        .demo-eyebrow { color: var(--pink); font-size: 10px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+        h1, h2, h3, p { margin: 0; }
+        h1 { margin-top: 5px; font-family: Georgia, serif; font-size: clamp(27px, 4vw, 42px); line-height: 1; }
+        h2 { font-family: Georgia, serif; font-size: 22px; line-height: 1.05; }
+        h3 { font-size: 13px; }
+        .demo-action { border-radius: 999px; padding: 10px 15px; background: var(--ink); color: white; font-size: 11px; font-weight: 800; box-shadow: 0 8px 20px rgba(41, 36, 59, .14); }
+        .demo-action:hover { transform: translateY(-1px); }
+        .demo-hero { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(170px, .6fr); gap: 18px; margin-top: 30px; }
+        .demo-banner { min-height: 178px; padding: 26px; border-radius: 20px; background: linear-gradient(120deg, #d8efe4, #f8f2d9); }
+        .demo-banner p { max-width: 380px; margin-top: 12px; color: #59645c; }
+        .demo-progress-card { display: grid; min-height: 178px; place-items: center; padding: 16px; border: 1px solid var(--line); border-radius: 20px; background: white; }
+        .progress-ring { display: grid; width: 100px; height: 100px; place-items: center; border-radius: 50%; background: conic-gradient(#66a996 0 72%, #e8f1ec 72%); }
+        .progress-ring::after { display: grid; width: 72px; height: 72px; place-items: center; border-radius: 50%; background: white; color: #4e7e70; content: "72%"; font-size: 18px; font-weight: 900; }
+        .demo-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 16px; }
+        .demo-stat { padding: 15px; border: 1px solid var(--line); border-radius: 15px; background: white; }
+        .demo-stat strong { display: block; font-family: Georgia, serif; font-size: 25px; }
+        .demo-stat span { color: var(--muted); font-size: 11px; }
+        .demo-content-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(210px, .75fr); gap: 16px; margin-top: 16px; }
+        .demo-panel { padding: 20px; border: 1px solid var(--line); border-radius: 18px; background: white; }
+        .demo-panel-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
+        .demo-panel-heading span { color: var(--pink); font-size: 11px; font-weight: 800; }
+        .demo-list { display: grid; gap: 10px; }
+        .demo-list-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 11px 12px; border-radius: 12px; background: #fbf8f8; }
+        .demo-list-row small { display: block; color: var(--muted); font-size: 10px; }
+        .demo-pill { padding: 5px 8px; border-radius: 999px; background: #e8f5ee; color: #4e7e70; font-size: 10px; font-weight: 800; }
+        .demo-note { color: var(--muted); font-size: 12px; }
+
+        .banking-app { background: #f5f6fb; }
+        .banking-app .demo-sidebar { background: #20233b; border-right: 0; color: white; }
+        .banking-app .demo-brand { color: #fff; }
+        .banking-app .demo-brand span { background: #8e80e7; }
+        .banking-app .demo-nav button { color: #a9a8bf; }
+        .banking-app .demo-nav button:hover, .banking-app .demo-nav button.is-active { background: rgba(142, 128, 231, .2); color: white; }
+        .banking-app .demo-profile { border-color: rgba(255,255,255,.12); }
+        .banking-app .demo-main { background: #f5f6fb; }
+        .banking-app .demo-eyebrow { color: var(--violet); }
+        .banking-app .demo-action { background: var(--violet); }
+        .banking-app .demo-banner { background: linear-gradient(120deg, #302c58, #514a92); color: white; }
+        .banking-app .demo-banner p { color: #dcd9ff; }
+        .balance-card { display: flex; align-items: flex-end; justify-content: space-between; min-height: 178px; padding: 26px; border-radius: 20px; background: linear-gradient(120deg, #302c58, #514a92); color: white; }
+        .balance-card small { color: #dcd9ff; }
+        .balance-card strong { display: block; margin-top: 8px; font-size: clamp(27px, 4vw, 42px); letter-spacing: -.04em; }
+        .balance-card .balance-mark { display: grid; width: 64px; height: 64px; place-items: center; border: 1px solid rgba(255,255,255,.35); border-radius: 20px; color: #f4d882; font-size: 28px; }
+        .banking-app .demo-stat strong { color: #403973; }
+        .banking-app .demo-panel { background: white; }
+        .transaction-icon { display: grid; width: 28px; height: 28px; place-items: center; border-radius: 10px; background: #eeecff; color: #6f60d1; font-size: 12px; font-weight: 900; }
+        .transaction-row { display: flex; align-items: center; gap: 10px; }
+        .transaction-row strong { font-size: 12px; }
+
+        .fandy-app { background: #fff8ef; }
+        .fandy-app .demo-sidebar { background: #fff4e4; border-color: rgba(171, 105, 44, .12); }
+        .fandy-app .demo-brand { color: #b96839; }
+        .fandy-app .demo-brand span { background: #efae66; }
+        .fandy-app .demo-nav button:hover, .fandy-app .demo-nav button.is-active { background: rgba(239,174,102,.2); color: #a45a2f; }
+        .fandy-app .demo-eyebrow { color: #d67e45; }
+        .fandy-app .demo-action { background: #c96c3a; }
+        .fandy-hero { display: grid; grid-template-columns: minmax(0, 1fr) 190px; gap: 16px; margin-top: 30px; }
+        .fandy-banner { min-height: 178px; padding: 26px; border-radius: 20px; background: #f6cc80; }
+        .fandy-banner p { max-width: 400px; margin-top: 12px; color: #725033; }
+        .fandy-art { display: grid; min-height: 178px; place-items: center; border-radius: 20px; background: #f2a9a1; color: #913e59; font-family: Georgia, serif; font-size: 72px; }
+        .fandy-app .demo-panel { background: rgba(255,255,255,.76); border-color: rgba(171, 105, 44, .14); }
+        .product-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 11px; }
+        .product { padding: 10px; border-radius: 14px; background: #fff7ed; }
+        .product-art { display: grid; min-height: 88px; place-items: center; border-radius: 11px; background: #f4d6c0; color: #9a5b4e; font-size: 26px; }
+        .product:nth-child(2) .product-art { background: #d4e5cf; color: #577752; }
+        .product:nth-child(3) .product-art { background: #d5d7ed; color: #645e9b; }
+        .product strong { display: block; margin-top: 8px; font-size: 11px; }
+        .product small { color: var(--muted); font-size: 10px; }
+        .cart-button { display: inline-flex; align-items: center; gap: 7px; color: #c96c3a; font-size: 11px; font-weight: 900; }
+        .cart-count { display: grid; width: 18px; height: 18px; place-items: center; border-radius: 50%; background: #c96c3a; color: white; font-size: 10px; }
+        .demo-toast { position: fixed; right: 16px; bottom: 16px; z-index: 3; max-width: 260px; padding: 12px 14px; border-radius: 12px; background: #29243b; color: white; box-shadow: 0 14px 30px rgba(41,36,59,.22); font-size: 12px; animation: toast-in 220ms ease both; }
+        @keyframes toast-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+        @media (max-width: 720px) {
+            .demo-app { display: block; }
+            .demo-sidebar { width: 100%; height: auto; padding: 15px 18px; border-right: 0; border-bottom: 1px solid var(--line); }
+            .demo-nav { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 15px; }
+            .demo-nav button { padding: 8px 9px; }
+            .demo-profile { display: none; }
+            .demo-main { padding: 23px 16px 30px; }
+            .demo-main-header { display: block; }
+            .demo-main-header .demo-action { margin-top: 16px; }
+            .demo-hero, .fandy-hero, .demo-content-grid { grid-template-columns: 1fr; }
+            .demo-stats { grid-template-columns: 1fr; }
+            .demo-stat { display: flex; align-items: center; justify-content: space-between; }
+            .demo-stat strong { font-size: 22px; }
+            .product-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 1ms !important; transition-duration: 1ms !important; } }
+    </style>
+</head>
+<body>
+    <div id="app" aria-live="polite"></div>
+    <script>
+        const app = new URLSearchParams(window.location.search).get("app") || "lophocso";
+        const appRoot = document.querySelector("#app");
+
+        const templates = {
+            lophocso: {
+                title: "Lớp học số",
+                className: "",
+                markup: `
+                    <aside class="demo-sidebar">
+                        <div class="demo-brand"><span>✦</span> lophocso</div>
+                        <nav class="demo-nav" aria-label="Lớp học số navigation">
+                            <button class="is-active" data-nav="Overview">◌ <span>Overview</span></button>
+                            <button data-nav="My classes">▦ <span>My classes</span></button>
+                            <button data-nav="Schedule">◷ <span>Schedule</span></button>
+                        </nav>
+                        <div class="demo-profile"><span class="demo-avatar">L</span><span><strong>Hoang Linh</strong><br>Keep learning ✨</span></div>
+                    </aside>
+                    <main class="demo-main">
+                        <header class="demo-main-header"><div><p class="demo-eyebrow">Wednesday, October 04</p><h1>Good morning, Linh ✨</h1></div><button class="demo-action" data-action="new plan">+ New study plan</button></header>
+                        <section class="demo-hero"><div class="demo-banner"><h2>Make space for a little progress.</h2><p>Your classes are moving beautifully this week. Keep one small promise to yourself today.</p></div><div class="demo-progress-card"><div class="progress-ring" aria-label="72 percent weekly progress"></div><p class="demo-note">Weekly progress</p></div></section>
+                        <section class="demo-stats"><div class="demo-stat"><strong>08</strong><span>lessons completed</span></div><div class="demo-stat"><strong>03</strong><span>active classes</span></div><div class="demo-stat"><strong>12h</strong><span>focus time</span></div></section>
+                        <section class="demo-content-grid"><div class="demo-panel"><div class="demo-panel-heading"><h2>My classes</h2><span>View all →</span></div><div class="demo-list"><div class="demo-list-row"><div><strong>Distributed systems</strong><small>Chapter 04 · 42 min left</small></div><span class="demo-pill">In progress</span></div><div class="demo-list-row"><div><strong>Cloud foundations</strong><small>Next lesson · Tomorrow</small></div><span class="demo-pill">Ready</span></div><div class="demo-list-row"><div><strong>Network architecture</strong><small>Assignment · Friday</small></div><span class="demo-pill">Review</span></div></div></div><div class="demo-panel"><div class="demo-panel-heading"><h2>Little note</h2><span>♡</span></div><p class="demo-note">“Small steps still count. Build a rhythm that feels like yours.”</p></div></section>
+                    </main>`
+            },
+            "open-banking": {
+                title: "Open Banking App",
+                className: "banking-app",
+                markup: `
+                    <aside class="demo-sidebar">
+                        <div class="demo-brand"><span>◈</span> openbank</div>
+                        <nav class="demo-nav" aria-label="Open Banking navigation">
+                            <button class="is-active" data-nav="Overview">◌ <span>Overview</span></button>
+                            <button data-nav="Accounts">▣ <span>Accounts</span></button>
+                            <button data-nav="Insights">⌁ <span>Insights</span></button>
+                        </nav>
+                        <div class="demo-profile"><span class="demo-avatar">L</span><span><strong>Personal space</strong><br>All accounts secure</span></div>
+                    </aside>
+                    <main class="demo-main">
+                        <header class="demo-main-header"><div><p class="demo-eyebrow">Your money, one clear view</p><h1>Welcome back, Linh.</h1></div><button class="demo-action" data-action="connect an account">Connect account</button></header>
+                        <section class="demo-hero"><div class="balance-card"><div><small>Total balance</small><strong>€12,840.20</strong><small>+4.8% from last month</small></div><div class="balance-mark">↗</div></div><div class="demo-progress-card"><div class="progress-ring" aria-label="72 percent budget used"></div><p class="demo-note">Monthly budget</p></div></section>
+                        <section class="demo-stats"><div class="demo-stat"><strong>€2,430</strong><span>available to spend</span></div><div class="demo-stat"><strong>18</strong><span>transactions this month</span></div><div class="demo-stat"><strong>4.8%</strong><span>saved this month</span></div></section>
+                        <section class="demo-content-grid"><div class="demo-panel"><div class="demo-panel-heading"><h2>Recent activity</h2><span>See all →</span></div><div class="demo-list"><div class="demo-list-row"><div class="transaction-row"><span class="transaction-icon">☕</span><div><strong>Morning Brew</strong><small>Today · Starling Bank</small></div></div><strong>− €4.80</strong></div><div class="demo-list-row"><div class="transaction-row"><span class="transaction-icon">↗</span><div><strong>Salary payment</strong><small>Yesterday · Open Bank</small></div></div><strong>+ €2,100</strong></div><div class="demo-list-row"><div class="transaction-row"><span class="transaction-icon">⌂</span><div><strong>Home utilities</strong><small>Mon · Wise</small></div></div><strong>− €82.40</strong></div></div></div><div class="demo-panel"><div class="demo-panel-heading"><h2>Spending mood</h2><span>June</span></div><p class="demo-note">You are spending 18% less on eating out this month. Lovely work.</p></div></section>
+                    </main>`
+            },
+            fandy: {
+                title: "Fandy",
+                className: "fandy-app",
+                markup: `
+                    <aside class="demo-sidebar">
+                        <div class="demo-brand"><span>F</span> fandy</div>
+                        <nav class="demo-nav" aria-label="Fandy navigation">
+                            <button class="is-active" data-nav="Discover">✦ <span>Discover</span></button>
+                            <button data-nav="Collections">♡ <span>Collections</span></button>
+                            <button data-nav="Orders">▤ <span>Orders</span></button>
+                        </nav>
+                        <div class="demo-profile"><span class="demo-avatar">L</span><span><strong>Hi, Linh</strong><br>12 saved items</span></div>
+                    </aside>
+                    <main class="demo-main">
+                        <header class="demo-main-header"><div><p class="demo-eyebrow">A softer way to discover</p><h1>Find your next favourite.</h1></div><button class="demo-action" data-action="open your bag">Bag <span class="cart-count">0</span></button></header>
+                        <section class="fandy-hero"><div class="fandy-banner"><h2>Little objects, big joy.</h2><p>Thoughtful finds for slow mornings, creative desks, and everyday rituals.</p></div><div class="fandy-art" aria-hidden="true">✿</div></section>
+                        <section class="demo-content-grid"><div class="demo-panel"><div class="demo-panel-heading"><h2>For your mood</h2><button class="cart-button" data-action="refresh recommendations">Refresh ↻</button></div><div class="product-grid"><article class="product"><div class="product-art">☼</div><strong>Sunlit mug</strong><small>€18.00</small><br><button class="cart-button" data-add="Sunlit mug">Add +</button></article><article class="product"><div class="product-art">❀</div><strong>Garden notes</strong><small>€12.00</small><br><button class="cart-button" data-add="Garden notes">Add +</button></article><article class="product"><div class="product-art">✎</div><strong>Soft desk set</strong><small>€24.00</small><br><button class="cart-button" data-add="Soft desk set">Add +</button></article></div></div><div class="demo-panel"><div class="demo-panel-heading"><h2>Your collection</h2><span>12 saved</span></div><p class="demo-note">Save things that make your day feel a little more like yours.</p></div></section>
+                    </main>`
+            }
+        };
+
+        const selected = templates[app] || templates.lophocso;
+        document.title = `${selected.title} · Preview`;
+        appRoot.className = `demo-app ${selected.className}`;
+        appRoot.innerHTML = selected.markup;
+
+        const showToast = (message) => {
+            document.querySelector(".demo-toast")?.remove();
+            const toast = document.createElement("div");
+            toast.className = "demo-toast";
+            toast.textContent = message;
+            document.body.appendChild(toast);
+            window.setTimeout(() => toast.remove(), 2200);
+        };
+
+        appRoot.querySelectorAll("[data-nav]").forEach((button) => {
+            button.addEventListener("click", () => {
+                appRoot.querySelectorAll("[data-nav]").forEach((item) => item.classList.remove("is-active"));
+                button.classList.add("is-active");
+                showToast(`${button.dataset.nav} view selected`);
+            });
+        });
+
+        appRoot.querySelectorAll("[data-action]").forEach((button) => {
+            button.addEventListener("click", () => showToast(`${button.dataset.action} is ready for your next step ✨`));
+        });
+
+        let cartCount = 0;
+        appRoot.querySelectorAll("[data-add]").forEach((button) => {
+            button.addEventListener("click", () => {
+                cartCount += 1;
+                document.querySelectorAll(".cart-count").forEach((count) => { count.textContent = cartCount; });
+                showToast(`${button.dataset.add} added to your bag`);
+            });
+        });
+    </script>
+</body>
+</html>

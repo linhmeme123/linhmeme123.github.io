@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project detail · Hoang Thuy Linh</title>
+    <style>
+        :root { --ink: #4a3340; --pink: #d96c95; --pink-soft: #f4a7c0; --cream: #fffdfb; --line: rgba(74, 51, 64, .13); --gold: #e8c27a; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { min-height: 100vh; color: var(--ink); background: radial-gradient(circle at 12% 8%, rgba(232,194,122,.24), transparent 22rem), radial-gradient(circle at 88% 16%, rgba(244,167,192,.34), transparent 24rem), linear-gradient(180deg, #fff4f8, var(--cream)); font: 15px/1.6 Inter, ui-sans-serif, system-ui, -apple-system, sans-serif; }
+        a { color: inherit; text-decoration: none; }
+        .detail-shell { width: min(1080px, calc(100% - 40px)); margin: 0 auto; padding: 28px 0 80px; }
+        .detail-topbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+        .detail-logo { color: var(--pink); font-family: Georgia, serif; font-size: 22px; font-weight: 700; }
+        .back-link { display: inline-flex; align-items: center; gap: 7px; color: rgba(74,51,64,.72); font-size: 13px; font-weight: 800; }
+        .back-link:hover { color: var(--pink); }
+        .detail-hero { display: grid; grid-template-columns: minmax(0, 1fr) 230px; gap: 34px; align-items: end; padding: clamp(76px, 12vw, 140px) 0 64px; }
+        .detail-kicker { color: var(--pink); font-size: 11px; font-weight: 900; letter-spacing: .14em; text-transform: uppercase; }
+        h1, h2 { font-family: Georgia, serif; font-weight: 700; }
+        h1 { max-width: 700px; margin-top: 10px; font-size: clamp(52px, 9vw, 106px); line-height: .86; letter-spacing: -.05em; }
+        .detail-intro { max-width: 600px; margin-top: 22px; color: rgba(74,51,64,.69); }
+        .detail-stamp { display: grid; min-height: 190px; place-items: center; padding: 18px; border: 1px solid rgba(232,194,122,.65); border-radius: 50% 44% 52% 40%; background: rgba(255,253,251,.72); color: var(--pink); font-family: Georgia, serif; font-size: 27px; text-align: center; transform: rotate(5deg); box-shadow: 0 18px 44px rgba(217,108,149,.12); }
+        .detail-frame { padding: clamp(22px, 4vw, 44px); border: 1px solid rgba(217,108,149,.28); border-radius: 26px; background: rgba(255,253,251,.74); box-shadow: 0 22px 58px rgba(217,108,149,.12); }
+        .detail-frame-header { display: flex; align-items: end; justify-content: space-between; gap: 20px; padding-bottom: 20px; border-bottom: 1px solid var(--line); }
+        .detail-frame-header h2 { font-size: clamp(28px, 4vw, 46px); line-height: .92; }
+        .detail-status { padding: 7px 10px; border: 1px solid rgba(217,108,149,.28); border-radius: 999px; color: var(--pink); font-size: 10px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+        .detail-placeholder-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 20px; }
+        .detail-placeholder { min-height: 164px; padding: 22px; border: 1px dashed rgba(74,51,64,.2); border-radius: 16px; background: rgba(255,244,248,.32); }
+        .detail-placeholder-wide { grid-column: 1 / -1; min-height: 230px; }
+        .detail-placeholder h3 { color: rgba(74,51,64,.8); font-family: Georgia, serif; font-size: 22px; }
+        .detail-placeholder p { margin-top: 9px; color: rgba(74,51,64,.57); font-size: 13px; }
+        .detail-lines { display: grid; gap: 10px; margin-top: 24px; }
+        .detail-lines span { display: block; width: 78%; height: 8px; border-radius: 999px; background: rgba(217,108,149,.12); }
+        .detail-lines span:nth-child(2) { width: 92%; }
+        .detail-lines span:nth-child(3) { width: 64%; }
+        .detail-footer { display: flex; justify-content: space-between; gap: 18px; margin-top: 26px; color: rgba(74,51,64,.54); font-size: 12px; }
+        @media (max-width: 720px) {
+            .detail-shell { width: min(100% - 28px, 1080px); padding-top: 18px; }
+            .detail-hero { grid-template-columns: 1fr; gap: 24px; padding: 82px 0 48px; }
+            .detail-stamp { width: 150px; min-height: 150px; justify-self: end; font-size: 22px; }
+            .detail-frame-header { display: block; }
+            .detail-status { display: inline-flex; margin-top: 15px; }
+            .detail-placeholder-grid { grid-template-columns: 1fr; }
+            .detail-placeholder-wide { grid-column: auto; }
+            .detail-footer { display: block; }
+            .detail-footer span + span { display: block; margin-top: 5px; }
+        }
+    </style>
+</head>
+<body>
+    <main class="detail-shell">
+        <div class="detail-topbar">
+            <a class="detail-logo" href="../index.html#projects">linh ♡</a>
+            <a class="back-link" href="../index.html#projects">← Back to Projects</a>
+        </div>
+
+        <section class="detail-hero">
+            <div>
+                <p class="detail-kicker" id="detail-kicker">Practice build</p>
+                <h1 id="detail-title">Project detail</h1>
+                <p class="detail-intro" id="detail-intro">This is a prepared space for the project story, architecture notes, and selected outcomes.</p>
+            </div>
+            <div class="detail-stamp" aria-hidden="true">✦<br>work in progress</div>
+        </section>
+
+        <section class="detail-frame" aria-labelledby="detail-frame-title">
+            <div class="detail-frame-header">
+                <h2 id="detail-frame-title">Project notes</h2>
+                <span class="detail-status">Ready to fill</span>
+            </div>
+            <div class="detail-placeholder-grid">
+                <article class="detail-placeholder detail-placeholder-wide">
+                    <h3>Project overview</h3>
+                    <p>Add the context, goal, and short story of this project here.</p>
+                    <div class="detail-lines" aria-hidden="true"><span></span><span></span><span></span></div>
+                </article>
+                <article class="detail-placeholder">
+                    <h3>Architecture</h3>
+                    <p>Use this space for a diagram, stack, or key technical decisions.</p>
+                    <div class="detail-lines" aria-hidden="true"><span></span><span></span></div>
+                </article>
+                <article class="detail-placeholder">
+                    <h3>What I learned</h3>
+                    <p>Add reflections, trade-offs, and the next experiment.</p>
+                    <div class="detail-lines" aria-hidden="true"><span></span><span></span></div>
+                </article>
+            </div>
+        </section>
+
+        <div class="detail-footer"><span id="detail-stack">Stack · to be added</span><span>Hoang Thuy Linh · Projects</span></div>
+    </main>
+
+    <script>
+        const details = {
+            "system-parameters": {
+                title: "System Parameters",
+                kicker: "Practice build · Kafka",
+                intro: "A prepared canvas for the Kafka systems practice project. Add the event flow, design notes, and implementation story when you are ready.",
+                stack: "Stack · Kafka · Java · distributed systems"
+            },
+            "frontline-market": {
+                title: "Frontline Market",
+                kicker: "Practice build · mobile marketplace",
+                intro: "A prepared canvas for the wartime e-commerce marketplace project. Add the product story, resilient flows, and mobile UX decisions here.",
+                stack: "Stack · Flutter · mobile · marketplace"
+            }
+        };
+
+        const project = details[new URLSearchParams(window.location.search).get("project")] || details["system-parameters"];
+        document.title = `${project.title} · Project detail`;
+        document.querySelector("#detail-title").textContent = project.title;
+        document.querySelector("#detail-kicker").textContent = project.kicker;
+        document.querySelector("#detail-intro").textContent = project.intro;
+        document.querySelector("#detail-stack").textContent = project.stack;
+    </script>
+</body>
+</html>

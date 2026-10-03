@@ -37,7 +37,7 @@
 
                 <h1>Hoang Thuy Linh</h1>
 
-                <p class="role">Computer Science Student</p>
+                <p class="role">Fullstack Engineer</p>
 
                 <div class="buttons">
                     <a href="#projects" class="primary-btn">Explore my projects</a>
@@ -98,49 +98,119 @@
             </div>
         </section>
 
-        <section id="projects" class="chapter reveal-section">
-            <p class="chapter-kicker">✦ My Adventures ✦</p>
-            <div class="section-heading compact">
-                <p>Selected Projects</p>
-                <h2>Stories I have built</h2>
+        <section id="projects" class="chapter projects-section reveal-section">
+            <div class="projects-heading">
+                <p class="chapter-kicker">✦ My Adventures ✦</p>
+                <h2>Projects</h2>
             </div>
 
-            <div class="project-grid">
-                <article class="storybook-card">
-                    <p class="project-number">✦ Project 01</p>
-                    <h3>Charity Decision System</h3>
-                    <p>
-                        A decision-support system that helps charities prioritize applicants
-                        with clearer, criteria-based decisions.
-                    </p>
-                    <div class="tags" aria-label="Technologies">
-                        <span>Python</span>
-                        <span>DSS</span>
-                        <span>Full Stack</span>
+            <div class="project-group">
+                <div class="project-group-heading">
+                    <div>
+                        <p class="project-group-kicker">Frontend interfaces</p>
+                        <h3>Click an icon to open the project</h3>
                     </div>
-                    <div class="project-links">
-                        <a href="projects/charity-decision-system.html">View Story →</a>
-                        <a href="#">Source Code →</a>
-                    </div>
-                </article>
+                    <span>Interactive preview · opens in this page</span>
+                </div>
 
-                <article class="storybook-card">
-                    <p class="project-number">✦ Project 02</p>
-                    <h3>Kafka Event-Driven Workflow System</h3>
-                    <p>
-                        Event-driven backend architecture using Kafka, Avro Schema Registry
-                        and the Outbox Pattern.
-                    </p>
-                    <div class="tags" aria-label="Technologies">
-                        <span>Kafka</span>
-                        <span>Avro</span>
-                        <span>Outbox</span>
+                <div class="portfolio-project-grid">
+                    <article class="portfolio-project-card">
+                        <button class="project-icon-button" type="button" data-demo-id="lophocso" aria-label="Open the Lớp học số interface preview">
+                            <span class="project-icon project-icon-school" aria-hidden="true">⌁</span>
+                            <span class="project-icon-hint">Open interface <span aria-hidden="true">↗</span></span>
+                        </button>
+                        <div class="portfolio-project-copy">
+                            <p class="project-number">✦ Frontend 01</p>
+                            <h3>Lớp học số</h3>
+                            <p>A friendly learning workspace for classes, progress, and shared study moments.</p>
+                            <div class="tags" aria-label="Technologies">
+                                <span>Next.js</span>
+                                <span>TypeScript</span>
+                                <span>Education</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="portfolio-project-card">
+                        <button class="project-icon-button" type="button" data-demo-id="open-banking" aria-label="Open the Open Banking App interface preview">
+                            <span class="project-icon project-icon-bank" aria-hidden="true">◈</span>
+                            <span class="project-icon-hint">Open interface <span aria-hidden="true">↗</span></span>
+                        </button>
+                        <div class="portfolio-project-copy">
+                            <p class="project-number">✦ Frontend 02</p>
+                            <h3>Open Banking App</h3>
+                            <p>A calm personal finance dashboard for balances, spending insights, and connected accounts.</p>
+                            <div class="tags" aria-label="Technologies">
+                                <span>Next.js</span>
+                                <span>Fintech</span>
+                                <span>Dashboard</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="portfolio-project-card">
+                        <button class="project-icon-button" type="button" data-demo-id="fandy" aria-label="Open the Fandy interface preview">
+                            <span class="project-icon project-icon-fandy" aria-hidden="true">F</span>
+                            <span class="project-icon-hint">Open interface <span aria-hidden="true">↗</span></span>
+                        </button>
+                        <div class="portfolio-project-copy">
+                            <p class="project-number">✦ Frontend 03</p>
+                            <h3>Fandy</h3>
+                            <p>A playful product space that brings discovery, collections, and simple actions together.</p>
+                            <div class="tags" aria-label="Technologies">
+                                <span>React</span>
+                                <span>Product UI</span>
+                                <span>Responsive</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <div class="project-group project-group-practice">
+                <div class="project-group-heading">
+                    <div>
+                        <p class="project-group-kicker">Practice builds</p>
+                        <h3>Notes, architecture, and experiments</h3>
                     </div>
-                    <div class="project-links">
-                        <a href="projects/kafka-workflow-system.html">View Story →</a>
-                        <a href="https://github.com/linhmeme123" target="_blank" rel="noreferrer">Source Code →</a>
-                    </div>
-                </article>
+                    <span>Open a detail page in a new tab</span>
+                </div>
+
+                <div class="portfolio-project-grid portfolio-project-grid-practice">
+                    <article class="portfolio-project-card practice-card">
+                        <div class="practice-card-mark practice-card-mark-kafka" aria-hidden="true">≋</div>
+                        <div class="portfolio-project-copy">
+                            <p class="project-number">✦ Practice 01</p>
+                            <h3>System Parameters</h3>
+                            <p>A Kafka-based systems practice build for exploring event flow, configuration, and reliable services.</p>
+                            <div class="tags" aria-label="Technologies">
+                                <span>Kafka</span>
+                                <span>Java</span>
+                                <span>Systems</span>
+                            </div>
+                            <a class="detail-btn" href="projects/project-detail.html?project=system-parameters" target="_blank" rel="noopener noreferrer">
+                                View detail <span aria-hidden="true">↗</span>
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="portfolio-project-card practice-card">
+                        <div class="practice-card-mark practice-card-mark-market" aria-hidden="true">✿</div>
+                        <div class="portfolio-project-copy">
+                            <p class="project-number">✦ Practice 02</p>
+                            <h3>Frontline Market</h3>
+                            <p>A wartime e-commerce marketplace practice build focused on resilient flows and thoughtful mobile UX.</p>
+                            <div class="tags" aria-label="Technologies">
+                                <span>Flutter</span>
+                                <span>Mobile</span>
+                                <span>Marketplace</span>
+                            </div>
+                            <a class="detail-btn" href="projects/project-detail.html?project=frontline-market" target="_blank" rel="noopener noreferrer">
+                                View detail <span aria-hidden="true">↗</span>
+                            </a>
+                        </div>
+                    </article>
+                </div>
             </div>
         </section>
 
@@ -171,11 +241,28 @@
         </section>
     </main>
 
+    <div class="demo-modal" id="project-demo-modal" hidden>
+        <div class="demo-modal-backdrop" data-demo-close></div>
+        <section class="demo-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="demo-modal-title" aria-describedby="demo-modal-description">
+            <header class="demo-modal-header">
+                <div>
+                    <p class="demo-modal-kicker">Interactive frontend preview</p>
+                    <h2 id="demo-modal-title">Project interface</h2>
+                    <p id="demo-modal-description">Explore the project interface in this preview window.</p>
+                </div>
+                <button class="demo-modal-close" type="button" data-demo-close aria-label="Close project preview">×</button>
+            </header>
+            <div class="demo-modal-frame-wrap">
+                <iframe id="project-demo-frame" title="Project interface preview" loading="eager"></iframe>
+            </div>
+        </section>
+    </div>
+
     <footer>
         <p>Made by Hoang Thuy Linh</p>
         <p>✦ Soft magic, serious engineering ✦</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=projects"></script>
 </body>
 </html>

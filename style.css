@@ -719,6 +719,391 @@ main {
     color: var(--ink);
 }
 
+.projects-heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 28px;
+    margin-bottom: 68px;
+}
+
+.projects-heading .chapter-kicker {
+    margin-bottom: 0;
+}
+
+.projects-heading h2 {
+    color: var(--ink);
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: clamp(4.4rem, 10vw, 8rem);
+    line-height: 0.78;
+    letter-spacing: -0.04em;
+}
+
+.project-group + .project-group {
+    margin-top: 68px;
+}
+
+.project-group-heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 28px;
+    margin-bottom: 24px;
+}
+
+.project-group-kicker {
+    color: var(--pink-deep);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+}
+
+.project-group-heading h3 {
+    margin-top: 7px;
+    color: var(--ink);
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: clamp(2rem, 3.5vw, 3.3rem);
+    line-height: 0.98;
+}
+
+.project-group-heading > span {
+    padding-bottom: 5px;
+    color: rgba(74, 51, 64, 0.66);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-align: right;
+}
+
+.portfolio-project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.portfolio-project-grid-practice {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.portfolio-project-card {
+    position: relative;
+    display: flex;
+    min-width: 0;
+    min-height: 490px;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid rgba(217, 108, 149, 0.34);
+    border-radius: 24px;
+    background: rgba(255, 253, 251, 0.74);
+    box-shadow: 0 18px 48px rgba(217, 108, 149, 0.1);
+    transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+}
+
+.portfolio-project-card::after {
+    position: absolute;
+    right: 18px;
+    bottom: 16px;
+    color: rgba(232, 194, 122, 0.86);
+    content: "✦";
+    font-size: 1.25rem;
+    pointer-events: none;
+}
+
+.portfolio-project-card:hover,
+.portfolio-project-card:focus-within {
+    border-color: rgba(217, 108, 149, 0.68);
+    box-shadow: 0 26px 58px rgba(217, 108, 149, 0.18);
+    transform: translateY(-7px);
+}
+
+.project-icon-button {
+    position: relative;
+    display: grid;
+    min-height: 222px;
+    place-items: center;
+    overflow: hidden;
+    border: 0;
+    border-bottom: 1px solid rgba(217, 108, 149, 0.18);
+    background:
+        radial-gradient(circle at 76% 20%, rgba(255, 255, 255, 0.86), transparent 5rem),
+        linear-gradient(145deg, rgba(244, 167, 192, 0.5), rgba(255, 253, 251, 0.9));
+    color: var(--princess-ink);
+    cursor: pointer;
+    isolation: isolate;
+    transition: background 220ms ease;
+}
+
+.project-icon-button::before,
+.project-icon-button::after {
+    position: absolute;
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    border-radius: 50%;
+    content: "";
+    pointer-events: none;
+}
+
+.project-icon-button::before {
+    width: 180px;
+    height: 180px;
+    transform: rotate(18deg);
+    box-shadow: 0 0 0 18px rgba(255, 255, 255, 0.12), 0 0 0 36px rgba(255, 255, 255, 0.08);
+}
+
+.project-icon-button::after {
+    width: 56px;
+    height: 56px;
+    top: 22px;
+    right: 22px;
+    border-color: rgba(232, 194, 122, 0.65);
+}
+
+.project-icon-button:hover,
+.project-icon-button:focus-visible {
+    background:
+        radial-gradient(circle at 76% 20%, rgba(255, 255, 255, 0.95), transparent 5rem),
+        linear-gradient(145deg, rgba(244, 167, 192, 0.7), rgba(255, 253, 251, 0.96));
+}
+
+.project-icon-button:focus-visible,
+.detail-btn:focus-visible,
+.demo-modal-close:focus-visible {
+    outline: 3px solid rgba(143, 45, 92, 0.42);
+    outline-offset: 4px;
+}
+
+.project-icon {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    width: 112px;
+    height: 112px;
+    place-items: center;
+    border: 1px solid rgba(143, 45, 92, 0.35);
+    border-radius: 34% 66% 54% 46% / 57% 40% 60% 43%;
+    background: linear-gradient(145deg, #fff8dc, #f4a7c0);
+    box-shadow: 0 16px 34px rgba(143, 45, 92, 0.18), inset 0 0 0 8px rgba(255, 253, 251, 0.42);
+    color: var(--princess-ink);
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 5rem;
+    font-weight: 700;
+    line-height: 1;
+    transition: transform 220ms ease;
+}
+
+.project-icon-school {
+    border-radius: 50% 42% 48% 55% / 42% 52% 48% 58%;
+    background: linear-gradient(145deg, #fff9dc, #c4e5df 88%);
+    color: #39736c;
+}
+
+.project-icon-bank {
+    border-radius: 45% 55% 38% 62% / 55% 43% 57% 45%;
+    background: linear-gradient(145deg, #fff9dc, #c7c6f0 88%);
+    color: #5e4b9c;
+}
+
+.project-icon-fandy {
+    border-radius: 40% 60% 64% 36% / 50% 46% 54% 50%;
+    background: linear-gradient(145deg, #fff9dc, #f6b3d7 88%);
+    color: #a92f73;
+}
+
+.project-icon-button:hover .project-icon,
+.project-icon-button:focus-visible .project-icon {
+    transform: rotate(-5deg) scale(1.06);
+}
+
+.project-icon-hint {
+    position: absolute;
+    right: 20px;
+    bottom: 16px;
+    z-index: 1;
+    color: rgba(74, 51, 64, 0.7);
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.portfolio-project-copy {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 26px 26px 32px;
+}
+
+.portfolio-project-copy h3 {
+    margin-top: 10px;
+    color: var(--ink);
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: clamp(2rem, 2.8vw, 2.8rem);
+    line-height: 0.96;
+}
+
+.portfolio-project-copy > p:not(.project-number) {
+    margin-top: 15px;
+    color: rgba(74, 51, 64, 0.72);
+    font-size: 0.94rem;
+}
+
+.portfolio-project-copy .tags {
+    margin-top: auto;
+    padding-top: 24px;
+}
+
+.practice-card {
+    display: grid;
+    grid-template-columns: 116px minmax(0, 1fr);
+    min-height: 350px;
+    gap: 4px;
+    padding: 24px 22px 24px 24px;
+}
+
+.practice-card .portfolio-project-copy {
+    padding: 4px 12px 10px 10px;
+}
+
+.practice-card-mark {
+    display: grid;
+    width: 94px;
+    height: 94px;
+    place-items: center;
+    border: 1px solid rgba(232, 194, 122, 0.66);
+    border-radius: 50%;
+    background: rgba(255, 244, 248, 0.76);
+    color: var(--pink-deep);
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 3.6rem;
+    line-height: 1;
+    box-shadow: 0 12px 24px rgba(217, 108, 149, 0.12);
+}
+
+.practice-card-mark-market {
+    color: #9d5d78;
+    background: rgba(255, 249, 220, 0.86);
+}
+
+.practice-card .tags {
+    margin-top: 22px;
+    padding-top: 0;
+}
+
+.detail-btn {
+    display: inline-flex;
+    align-items: center;
+    align-self: flex-start;
+    gap: 8px;
+    margin-top: auto;
+    padding-top: 22px;
+    color: var(--pink-deep);
+    font-size: 0.92rem;
+    font-weight: 900;
+}
+
+.detail-btn:hover {
+    color: var(--ink);
+}
+
+.demo-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+}
+
+.demo-modal[hidden] {
+    display: none;
+}
+
+.demo-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(74, 51, 64, 0.48);
+    backdrop-filter: blur(8px);
+}
+
+.demo-modal-dialog {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    width: min(1120px, 100%);
+    max-height: min(90vh, 900px);
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid rgba(232, 194, 122, 0.68);
+    border-radius: 28px;
+    background: var(--cream);
+    box-shadow: 0 30px 90px rgba(74, 51, 64, 0.3);
+    animation: detail-open 260ms ease both;
+}
+
+.demo-modal-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 24px 28px 20px;
+    background: linear-gradient(135deg, rgba(244, 167, 192, 0.28), rgba(255, 253, 251, 0.7));
+}
+
+.demo-modal-kicker {
+    color: var(--pink-deep);
+    font-size: 0.76rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.demo-modal-header h2 {
+    margin-top: 4px;
+    color: var(--ink);
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: clamp(2.1rem, 4vw, 3.6rem);
+    line-height: 0.95;
+}
+
+.demo-modal-header p:last-child {
+    margin-top: 6px;
+    color: rgba(74, 51, 64, 0.7);
+    font-size: 0.9rem;
+}
+
+.demo-modal-close {
+    display: grid;
+    width: 42px;
+    height: 42px;
+    flex: 0 0 auto;
+    place-items: center;
+    border: 1px solid rgba(217, 108, 149, 0.35);
+    border-radius: 50%;
+    background: rgba(255, 253, 251, 0.76);
+    color: var(--ink);
+    cursor: pointer;
+    font-size: 1.65rem;
+    line-height: 1;
+}
+
+.demo-modal-frame-wrap {
+    min-height: 0;
+    padding: 0 14px 14px;
+}
+
+#project-demo-frame {
+    display: block;
+    width: 100%;
+    height: min(68vh, 690px);
+    min-height: 420px;
+    border: 1px solid rgba(217, 108, 149, 0.2);
+    border-radius: 18px;
+    background: #fff;
+}
+
+body.demo-open {
+    overflow: hidden;
+}
+
 .project-detail {
     margin-top: 34px;
     padding: 30px;
@@ -1057,6 +1442,11 @@ footer {
         gap: 14px;
     }
 
+    .portfolio-project-grid,
+    .portfolio-project-grid-practice {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
     .about-body {
         gap: 52px;
     }
@@ -1155,6 +1545,31 @@ footer {
         margin-top: 34px;
     }
 
+    .projects-heading {
+        display: block;
+        margin-bottom: 54px;
+    }
+
+    .projects-heading h2 {
+        margin-top: 16px;
+        font-size: clamp(4rem, 18vw, 6rem);
+    }
+
+    .project-group-heading {
+        display: block;
+    }
+
+    .project-group-heading > span {
+        display: block;
+        margin-top: 10px;
+        text-align: left;
+    }
+
+    .portfolio-project-grid,
+    .portfolio-project-grid-practice {
+        grid-template-columns: 1fr;
+    }
+
     .princess-frame {
         width: min(270px, 82vw);
     }
@@ -1170,6 +1585,40 @@ footer {
 
     .project-detail {
         padding: 24px;
+    }
+
+    .practice-card {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        gap: 14px;
+    }
+
+    .practice-card-mark {
+        width: 76px;
+        height: 76px;
+        font-size: 2.8rem;
+    }
+
+    .practice-card .portfolio-project-copy {
+        padding: 0 4px 8px;
+    }
+
+    .demo-modal {
+        padding: 10px;
+    }
+
+    .demo-modal-header {
+        padding: 20px 18px 16px;
+    }
+
+    .demo-modal-frame-wrap {
+        padding: 0 8px 8px;
+    }
+
+    #project-demo-frame {
+        height: 68vh;
+        min-height: 360px;
+        border-radius: 14px;
     }
 
     .project-page {
