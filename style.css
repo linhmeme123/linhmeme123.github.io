@@ -429,17 +429,151 @@ main {
     text-wrap: balance;
 }
 
+.about-body {
+    display: grid;
+    grid-template-columns: minmax(220px, 0.42fr) minmax(0, 1fr);
+    gap: clamp(42px, 7vw, 96px);
+    align-items: center;
+    margin-top: 52px;
+}
+
+.mirror-frame {
+    position: relative;
+    width: min(296px, 100%);
+    margin: 0 auto;
+    padding: 30px 24px 34px;
+    border: 10px solid transparent;
+    border-radius: 48% 48% 18px 18px;
+    background:
+        linear-gradient(160deg, #fff1b1 0%, #c27a35 31%, #f8dda0 52%, #a75d2d 76%, #f7d889 100%) padding-box,
+        linear-gradient(160deg, #fff4bd, #9b5429, #f7d98c) border-box;
+    box-shadow:
+        0 24px 42px rgba(101, 55, 33, 0.2),
+        0 0 0 5px rgba(232, 194, 122, 0.3),
+        inset 0 0 0 2px rgba(255, 248, 202, 0.7);
+    isolation: isolate;
+}
+
+.mirror-frame::before,
+.mirror-frame::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    z-index: -1;
+    border: 2px solid rgba(170, 99, 43, 0.7);
+    transform: translateX(-50%);
+}
+
+.mirror-frame::before {
+    top: -23px;
+    width: 78px;
+    height: 36px;
+    border-bottom: 0;
+    border-radius: 50% 50% 0 0;
+    background: linear-gradient(90deg, #d08b3d, #fff0a8, #b96d30);
+}
+
+.mirror-frame::after {
+    bottom: -15px;
+    width: 92px;
+    height: 17px;
+    border-top: 0;
+    border-radius: 0 0 50% 50%;
+    background: linear-gradient(90deg, #b96d30, #f6d887, #b96d30);
+}
+
+.mirror-crown {
+    position: absolute;
+    top: -49px;
+    left: 50%;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    color: #fff0ab;
+    text-shadow: 0 2px 3px rgba(111, 56, 28, 0.5);
+    transform: translateX(-50%);
+}
+
+.mirror-crown strong {
+    color: #f8dc8a;
+    font-family: Georgia, serif;
+    font-size: 2.55rem;
+    line-height: 1;
+}
+
+.mirror-crown span {
+    color: #fff2b6;
+    font-size: 0.9rem;
+}
+
+.mirror-flourish {
+    position: absolute;
+    top: 48%;
+    z-index: 2;
+    color: #ffe99b;
+    font-family: Georgia, serif;
+    font-size: 2.15rem;
+    line-height: 1;
+    text-shadow: 0 2px 3px rgba(111, 56, 28, 0.5);
+}
+
+.mirror-flourish-left {
+    left: -21px;
+    transform: rotate(-30deg);
+}
+
+.mirror-flourish-right {
+    right: -21px;
+    transform: scaleX(-1) rotate(-30deg);
+}
+
+.mirror-glass {
+    position: relative;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    border: 5px solid #f5d886;
+    border-radius: 44% 44% 13px 13px;
+    background: #263f3a;
+    box-shadow:
+        inset 0 0 0 3px rgba(255, 243, 181, 0.75),
+        inset 0 0 30px rgba(75, 38, 42, 0.45);
+}
+
+.mirror-glass::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(125deg, rgba(255, 255, 255, 0.28), transparent 26%, transparent 68%, rgba(255, 239, 172, 0.1));
+}
+
+.mirror-glass img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    filter: saturate(1.04) contrast(1.02);
+}
+
+.mirror-frame figcaption {
+    margin-top: 15px;
+    color: rgba(79, 42, 37, 0.8);
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 1.08rem;
+    font-weight: 700;
+    text-align: center;
+}
+
 .about-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 28px;
-    max-width: 850px;
-    margin: 42px 0 0 auto;
+    align-self: center;
 }
 
 .about-grid p,
-.project-detail p,
-.timeline span {
+.project-detail p {
     color: rgba(74, 51, 64, 0.74);
     font-size: 1rem;
 }
@@ -662,8 +796,7 @@ main {
     margin-top: 22px;
 }
 
-.detail-grid h4,
-.timeline h3 {
+.detail-grid h4 {
     font-family: "Cormorant Garamond", Georgia, serif;
     font-size: 1.55rem;
     line-height: 1;
@@ -683,31 +816,6 @@ main {
     padding: 10px 18px;
     background: rgba(255, 253, 251, 0.76);
     box-shadow: 0 10px 24px rgba(217, 108, 149, 0.08);
-}
-
-.timeline {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 22px;
-}
-
-.timeline div {
-    padding: 28px;
-    border: 1px solid var(--soft-border);
-    border-radius: 8px;
-    background: rgba(255, 253, 251, 0.66);
-}
-
-.timeline p {
-    margin-bottom: 26px;
-    color: var(--champagne);
-    font-size: 0.92rem;
-    font-weight: 900;
-}
-
-.timeline span {
-    display: block;
-    margin-top: 12px;
 }
 
 .contact-section {
@@ -858,11 +966,11 @@ footer {
 
 @media (max-width: 900px) {
     .section-heading,
+    .about-body,
     .about-grid,
     .project-grid,
     .detail-grid,
-    .project-hero,
-    .timeline {
+    .project-hero {
         grid-template-columns: 1fr;
     }
 
@@ -906,6 +1014,10 @@ footer {
 
     .section-heading {
         gap: 14px;
+    }
+
+    .about-body {
+        gap: 52px;
     }
 
     .skill-cloud {
@@ -980,6 +1092,14 @@ footer {
         margin-bottom: 52px;
     }
 
+    .about-body {
+        margin-top: 44px;
+    }
+
+    .mirror-frame {
+        width: min(270px, 82vw);
+    }
+
     .storybook-card {
         min-height: auto;
         padding: 30px 24px;
@@ -989,8 +1109,7 @@ footer {
         inset: 10px;
     }
 
-    .project-detail,
-    .timeline div {
+    .project-detail {
         padding: 24px;
     }
 
