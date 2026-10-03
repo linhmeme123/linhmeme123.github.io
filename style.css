@@ -1262,6 +1262,78 @@ body.demo-open {
     justify-content: center;
 }
 
+.contact-title {
+    margin-top: 14px;
+    color: var(--ink);
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: clamp(3.4rem, 8vw, 6.4rem);
+    line-height: 0.86;
+    letter-spacing: -0.03em;
+    text-align: center;
+}
+
+.contact-copy {
+    max-width: 560px;
+    margin: 22px auto 0;
+    color: rgba(74, 51, 64, 0.7);
+    font-size: 1rem;
+}
+
+.contact-social-links {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: min(100%, 430px);
+    margin: 38px auto 0;
+    padding: 0 4px;
+}
+
+.contact-social-link {
+    display: grid;
+    width: clamp(46px, 14vw, 64px);
+    height: clamp(46px, 14vw, 64px);
+    flex: 0 0 clamp(46px, 14vw, 64px);
+    place-items: center;
+    border: 1px solid rgba(217, 108, 149, 0.32);
+    border-radius: 50%;
+    background: rgba(255, 253, 251, 0.78);
+    color: var(--pink-deep);
+    box-shadow: 0 12px 28px rgba(217, 108, 149, 0.11);
+    transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, color 180ms ease, box-shadow 180ms ease;
+}
+
+.contact-social-link svg {
+    display: block;
+    width: clamp(22px, 6vw, 29px);
+    height: clamp(22px, 6vw, 29px);
+}
+
+.contact-social-link:hover,
+.contact-social-link:focus-visible {
+    border-color: currentColor;
+    background: var(--pink-deep);
+    color: var(--cream);
+    box-shadow: 0 16px 32px rgba(217, 108, 149, 0.24);
+    transform: translateY(-5px) scale(1.06);
+}
+
+.contact-social-link:focus-visible {
+    outline: 3px solid rgba(143, 45, 92, 0.35);
+    outline-offset: 4px;
+}
+
+.contact-social-link-email {
+    color: #b78238;
+}
+
+.contact-social-link-instagram {
+    color: #b84c83;
+}
+
+.contact-social-link-facebook {
+    color: #5f6caf;
+}
+
 footer {
     display: flex;
     flex-wrap: wrap;

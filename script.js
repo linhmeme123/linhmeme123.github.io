@@ -149,3 +149,7 @@ document.addEventListener("keydown", (event) => {
         firstElement.focus();
     }
 });
+
+document.querySelectorAll('.contact-social-link[href=""]').forEach((link) => {
+    link.addEventListener("click", (event) => event.preventDefault());
+});
